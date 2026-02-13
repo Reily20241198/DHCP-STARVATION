@@ -907,10 +907,10 @@ Tasa de exito: 100.00%
 
 **Descripción:** Vista general de la topología de red en pnet mostrando todos los dispositivos conectados.
 
-```
+
 <img width="1287" height="775" alt="Screenshot_2" src="https://github.com/user-attachments/assets/61c93beb-19b5-4a9a-bdef-dcb324b45357" />
 
-```
+
 
 **Elementos visibles:**
 - ✅ Router R-1 (Cisco IOSv)
@@ -926,10 +926,10 @@ Tasa de exito: 100.00%
 
 **Descripción:** Configuración DHCP del router antes del ataque, mostrando el pool disponible.
 
-```
+
 <img width="904" height="206" alt="Screenshot_3" src="https://github.com/user-attachments/assets/75316583-9df9-4949-b0cf-c1f2314f5113" />
 
-```
+
 
 **Comando ejecutado:**
 ```cisco
@@ -948,9 +948,10 @@ Router# show ip dhcp pool RED_2024
 
 **Descripción:** Tabla de bindings DHCP vacía o con pocas entradas antes del ataque.
 
-```
 
-```
+<img width="904" height="206" alt="Screenshot_3" src="https://github.com/user-attachments/assets/9b9baa02-af80-465c-82c3-293cdae2217c" />
+
+
 
 **Comando ejecutado:**
 ```cisco
@@ -965,10 +966,10 @@ Router# show ip dhcp binding
 
 **Descripción:** Terminal de Kali Linux mostrando el inicio del ataque DHCP Starvation.
 
-```
+
 <img width="646" height="504" alt="Screenshot_5" src="https://github.com/user-attachments/assets/77f15707-2cbe-443e-b19f-41864a73c0d2" />
 
-```
+
 
 **Elementos visibles:**
 - Banner del script
@@ -982,10 +983,10 @@ Router# show ip dhcp binding
 
 **Descripción:** Vista del ataque ejecutándose, mostrando múltiples DISCOVER y LEASE en tiempo real.
 
-```
+
 <img width="646" height="504" alt="Screenshot_5" src="https://github.com/user-attachments/assets/74c6b40c-42e3-4b0f-8830-9068239c3721" />
 
-```
+
 
 **Información visible:**
 - [*] DISCOVER #X enviado - MAC: 00:16:3e:xx:xx:xx
@@ -998,10 +999,10 @@ Router# show ip dhcp binding
 
 **Descripción:** Estado del pool DHCP después del ataque, mostrando 240+ IPs asignadas.
 
-```
+
 <img width="822" height="216" alt="Screenshot_4" src="https://github.com/user-attachments/assets/aadd7da2-2999-47ef-84d7-db52f81bac1f" />
 
-```
+
 
 **Comando ejecutado:**
 ```cisco
@@ -1019,10 +1020,10 @@ Router# show ip dhcp pool RED_2024
 
 **Descripción:** Lista de direcciones IP asignadas a MACs aleatorias generadas por el ataque.
 
-```
+
 <img width="878" height="446" alt="Screenshot_7" src="https://github.com/user-attachments/assets/cd95b67a-a9f6-4111-9fe2-74dd44b78de7" />
 
-```
+
 
 **Comando ejecutado:**
 ```cisco
@@ -1040,10 +1041,10 @@ Router# show ip dhcp binding | include 11.98.1
 
 **Descripción:** Resumen estadístico mostrado al finalizar el ataque.
 
-```
+
 <img width="388" height="123" alt="Screenshot_8" src="https://github.com/user-attachments/assets/434ad13a-997a-4159-8bce-219e8a53009a" />
 
-```
+
 
 **Información visible:**
 ```
@@ -1063,10 +1064,10 @@ Tasa de exito: 100.00%
 
 **Descripción:** VPCS intentando obtener IP por DHCP y fallando debido al pool agotado.
 
-```
+
 <img width="316" height="92" alt="Screenshot_9" src="https://github.com/user-attachments/assets/6b0a7bb8-6e39-47f5-b040-56051699989c" />
 
-```
+
 
 **Comandos ejecutados en VPCS:**
 ```bash
@@ -1085,10 +1086,9 @@ Can't find dhcp server
 
 **Descripción:** Configuración de red del atacante mostrando IP estática asignada.
 
-```
+
 <img width="869" height="326" alt="Screenshot_10" src="https://github.com/user-attachments/assets/5ac0215b-76e8-4b74-ab4e-8263d8433b50" />
 
-```
 
 **Comando ejecutado:**
 ```bash
