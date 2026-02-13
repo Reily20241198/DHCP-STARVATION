@@ -1,8 +1,8 @@
 # 🛡️ DHCP Starvation Attack - Documentación Técnica Profesional
 
-**Autor:** [Tu Nombre Completo]  
-**Matrícula:** [Tu Matrícula]  
-**Institución:** [Tu Institución]  
+**Autor:**  Reily Castillo 
+**Matrícula:** 2024-1198   
+**Institución:**  ITLA   
 **Curso:** Seguridad en Redes  
 **Fecha:** Febrero 2026  
 
@@ -2214,10 +2214,10 @@ La educación en seguridad informática y la comprensión profunda de los vector
 
 ## 📧 Información del Autor
 
-**Nombre:** [Tu Nombre Completo]  
-**Matrícula:** [Tu Matrícula]  
-**Institución:** [Tu Institución]  
-**Email:** [tu.email@ejemplo.com]  
+**Nombre:** Reily Castillo   
+**Matrícula:** 2024-1198  
+**Institución:** Instituto ITLA  
+**Email:** [rosarioreily17@gmail.com]  
 **Fecha:** Febrero 2026  
 
 ---
