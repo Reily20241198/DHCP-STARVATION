@@ -142,39 +142,8 @@ El proceso se repite **cientos de veces** hasta agotar el pool.
 
 ### Diagrama de Red Completo
 
-```
-                    ATACANTE
-                  (11.98.1.100)
-                  Kali Linux 2024
-                  [dhcp-starvation.py]
-                       |
-                    [eth0]
-                       |
-                       |
-              ┌────────┴────────┐
-              │   ROUTER R-1    │
-              │  Cisco IOSv     │
-              ├─────────────────┤
-              │ e0/0: 11.98.1.1 │ ← Red del Atacante
-              │ e0/1: 11.98.0.1 │ ← Red de Víctimas
-              └────────┬────────┘
-                       |
-                   [e0/1]
-                       |
-                    [e0/0]
-              ┌────────┴────────┐
-              │   SWITCH SW-1   │
-              │  Cisco IOL      │
-              └─────┬─────┬─────┘
-                    |     |
-                [e0/1] [e0/2]
-                    |     |
-              ┌─────┴──┐ ┌┴──────┐
-              │ VPCS 1 │ │ VPCS 2│
-              │11.98.0.2│ │11.98.0.3│
-              └────────┘ └───────┘
-                VÍCTIMAS
-```
+<img width="1287" height="775" alt="Screenshot_2" src="https://github.com/user-attachments/assets/080396f0-f6fa-4d3c-9b12-7cc9d95a4c8b" />
+
 
 ### Interfaces y Configuración
 
@@ -231,7 +200,6 @@ service dhcp
 
 | Dispositivo | Interfaz | Dirección IP | Máscara de Red | Gateway | Pool DHCP |
 |-------------|----------|--------------|----------------|---------|-----------|
-| Router R-1 | e0/0 | 11.98.1.1 | 255.255.255.0 | - | RED_2024 |
 | Router R-1 | e0/1 | 11.98.0.1 | 255.255.255.0 | - | LAB_1198 |
 | Atacante | eth0 | 11.98.1.100 | 255.255.255.0 | 11.98.1.1 | - |
 | VPCS 1 | eth0 | 11.98.0.2 | 255.255.255.0 | 11.98.0.1 | LAB_1198 |
@@ -935,12 +903,13 @@ Tasa de exito: 100.00%
 
 ## 📸 Capturas de Pantalla
 
-### Captura 1: Topología en GNS3
+### Captura 1: Topología en pnet
 
-**Descripción:** Vista general de la topología de red en GNS3 mostrando todos los dispositivos conectados.
+**Descripción:** Vista general de la topología de red en pnet mostrando todos los dispositivos conectados.
 
 ```
-[INSERTAR AQUÍ: Captura de pantalla de GNS3 con la topología completa]
+<img width="1287" height="775" alt="Screenshot_2" src="https://github.com/user-attachments/assets/61c93beb-19b5-4a9a-bdef-dcb324b45357" />
+
 ```
 
 **Elementos visibles:**
@@ -958,7 +927,8 @@ Tasa de exito: 100.00%
 **Descripción:** Configuración DHCP del router antes del ataque, mostrando el pool disponible.
 
 ```
-[INSERTAR AQUÍ: Captura del comando "show ip dhcp pool RED_2024"]
+<img width="904" height="206" alt="Screenshot_3" src="https://github.com/user-attachments/assets/75316583-9df9-4949-b0cf-c1f2314f5113" />
+
 ```
 
 **Comando ejecutado:**
@@ -979,7 +949,7 @@ Router# show ip dhcp pool RED_2024
 **Descripción:** Tabla de bindings DHCP vacía o con pocas entradas antes del ataque.
 
 ```
-[INSERTAR AQUÍ: Captura del comando "show ip dhcp binding"]
+
 ```
 
 **Comando ejecutado:**
@@ -996,7 +966,8 @@ Router# show ip dhcp binding
 **Descripción:** Terminal de Kali Linux mostrando el inicio del ataque DHCP Starvation.
 
 ```
-[INSERTAR AQUÍ: Captura del script iniciando con el mensaje de confirmación]
+<img width="646" height="504" alt="Screenshot_5" src="https://github.com/user-attachments/assets/77f15707-2cbe-443e-b19f-41864a73c0d2" />
+
 ```
 
 **Elementos visibles:**
@@ -1012,7 +983,8 @@ Router# show ip dhcp binding
 **Descripción:** Vista del ataque ejecutándose, mostrando múltiples DISCOVER y LEASE en tiempo real.
 
 ```
-[INSERTAR AQUÍ: Captura con ~50-100 líneas de DISCOVER/LEASE]
+<img width="646" height="504" alt="Screenshot_5" src="https://github.com/user-attachments/assets/74c6b40c-42e3-4b0f-8830-9068239c3721" />
+
 ```
 
 **Información visible:**
@@ -1022,33 +994,13 @@ Router# show ip dhcp binding
 
 ---
 
-### Captura 6: Monitoreo con tcpdump
-
-**Descripción:** Terminal mostrando tcpdump capturando tráfico DHCP durante el ataque.
-
-```
-[INSERTAR AQUÍ: Captura de tcpdump mostrando paquetes DHCP]
-```
-
-**Comando ejecutado:**
-```bash
-sudo tcpdump -i eth0 -n 'port 67 or port 68' -v
-```
-
-**Paquetes visibles:**
-- DHCP DISCOVER (0.0.0.0.68 → 255.255.255.255.67)
-- DHCP OFFER (11.98.1.1.67 → Atacante)
-- DHCP REQUEST
-- DHCP ACK
-
----
-
 ### Captura 7: Pool DHCP Saturado (Post-Ataque)
 
 **Descripción:** Estado del pool DHCP después del ataque, mostrando 240+ IPs asignadas.
 
 ```
-[INSERTAR AQUÍ: Captura de "show ip dhcp pool RED_2024" post-ataque]
+<img width="822" height="216" alt="Screenshot_4" src="https://github.com/user-attachments/assets/aadd7da2-2999-47ef-84d7-db52f81bac1f" />
+
 ```
 
 **Comando ejecutado:**
@@ -1068,7 +1020,8 @@ Router# show ip dhcp pool RED_2024
 **Descripción:** Lista de direcciones IP asignadas a MACs aleatorias generadas por el ataque.
 
 ```
-[INSERTAR AQUÍ: Captura de "show ip dhcp binding | include 11.98.1"]
+<img width="878" height="446" alt="Screenshot_7" src="https://github.com/user-attachments/assets/cd95b67a-a9f6-4111-9fe2-74dd44b78de7" />
+
 ```
 
 **Comando ejecutado:**
@@ -1088,7 +1041,8 @@ Router# show ip dhcp binding | include 11.98.1
 **Descripción:** Resumen estadístico mostrado al finalizar el ataque.
 
 ```
-[INSERTAR AQUÍ: Captura de las estadísticas finales]
+<img width="388" height="123" alt="Screenshot_8" src="https://github.com/user-attachments/assets/434ad13a-997a-4159-8bce-219e8a53009a" />
+
 ```
 
 **Información visible:**
@@ -1110,7 +1064,8 @@ Tasa de exito: 100.00%
 **Descripción:** VPCS intentando obtener IP por DHCP y fallando debido al pool agotado.
 
 ```
-[INSERTAR AQUÍ: Captura de VPCS con mensaje "Can't find dhcp server"]
+<img width="316" height="92" alt="Screenshot_9" src="https://github.com/user-attachments/assets/6b0a7bb8-6e39-47f5-b040-56051699989c" />
+
 ```
 
 **Comandos ejecutados en VPCS:**
@@ -1126,34 +1081,13 @@ Can't find dhcp server
 
 ---
 
-### Captura 11: Análisis en Wireshark
-
-**Descripción:** Vista de Wireshark mostrando el tráfico DHCP capturado durante el ataque.
-
-```
-[INSERTAR AQUÍ: Captura de Wireshark con filtro bootp]
-```
-
-**Filtro utilizado:**
-```
-bootp
-```
-
-**Elementos visibles:**
-- Cientos de paquetes DHCP DISCOVER
-- Respuestas DHCP OFFER del servidor
-- Paquetes DHCP REQUEST
-- Paquetes DHCP ACK
-- Diferentes MACs de origen (00:16:3e:xx:xx:xx)
-
----
-
 ### Captura 12: Configuración de la Interfaz del Atacante
 
 **Descripción:** Configuración de red del atacante mostrando IP estática asignada.
 
 ```
-[INSERTAR AQUÍ: Captura del comando "ip a show eth0"]
+<img width="869" height="326" alt="Screenshot_10" src="https://github.com/user-attachments/assets/5ac0215b-76e8-4b74-ab4e-8263d8433b50" />
+
 ```
 
 **Comando ejecutado:**
@@ -1185,10 +1119,6 @@ ip a show eth0
 | 10 | VPCS sin IP | Terminal VPCS | Post-ataque | Alta |
 | 11 | Wireshark | Wireshark | Durante/Post | Media |
 | 12 | Config atacante | `ip a` | Pre-ataque | Baja |
-
-**Total de capturas recomendadas:** 12  
-**Capturas críticas (Alta prioridad):** 8  
-**Capturas opcionales (Media/Baja):** 4
 
 ---
 
