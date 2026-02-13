@@ -1,4 +1,4 @@
-# 🛡️ DHCP Starvation Attack - Documentación Técnica Profesional
+# 🛡️ DHCP Starvation Attack - 
 
 **Autor:** Reily Castillo
 **Matrícula:** 2024-1198   
