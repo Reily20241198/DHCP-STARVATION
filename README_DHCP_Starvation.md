@@ -7,24 +7,6 @@
 **Fecha:** Febrero 13/2/2026  
 Enlace de youtube: https://www.youtube.com/watch?v=AlWzRhrRN2M
 
----
-
-## 📑 Índice
-
-1. [Objetivo del Script](#objetivo-del-script)
-2. [Descripción Técnica](#descripción-técnica)
-3. [Topología de Red](#topología-de-red)
-4. [Parámetros Utilizados](#parámetros-utilizados)
-5. [Requisitos del Sistema](#requisitos-del-sistema)
-6. [Instalación y Configuración](#instalación-y-configuración)
-7. [Ejecución del Ataque](#ejecución-del-ataque)
-8. [Capturas de Pantalla](#capturas-de-pantalla)
-9. [Resultados Obtenidos](#resultados-obtenidos)
-10. [Medidas de Mitigación](#medidas-de-mitigación)
-11. [Conclusiones](#conclusiones)
-12. [Referencias](#referencias)
-
----
 
 ## 🎯 Objetivo del Script
 
